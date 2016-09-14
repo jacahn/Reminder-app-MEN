@@ -1,0 +1,29 @@
+<h2>Reminders for {{author.name}}</h2>
+<div>
+  <!-- iterates thru each reminder that belongs to this author -->
+  {{#each author.reminders}}
+    <div class="reminders-show-each">
+      <p>{{body}}</p>
+      <!-- form to delete a reminder from this author (route and controller action not defined yet) -->
+      <form action="/authors/{{../author._id}}/reminders/{{_id}}?_method=delete" method="post">
+        <input type="submit" value="Done!">
+      </form>
+    </div>
+  {{/each}}
+</div>
+
+<div id="reminder-new">
+  <h3>New Reminder</h3>
+  <!-- form to create a reminder from this author (route and control not defined yet) -->
+  <form action="/authors/{{author._id}}/reminders" method="post">
+    <label>Body</label>
+    <input type="text" name="body">
+    <input type="submit">
+  </form>
+</div>
+
+<div id="author-edit">
+  <!-- link to edit this author (route and control not yet defined) -->
+  <a href="/authors/{{author._id}}/edit">Edit Author</a>
+  <a href="/authors">Back</a>
+</div>

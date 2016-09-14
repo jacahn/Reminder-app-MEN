@@ -30,5 +30,11 @@ app.listen(4000, function(){
 // routes for all requests to this express app that map to
 // an action/function in out authorsController
 app.get('/authors', authorsController.index)
-app.get('/authors/new', authorsController.new)
+app.get("/authors/new", authorsController.new)
+app.post('/authors', authorsController.create)
 app.get('/authors/:id', authorsController.show)
+app.get('/authors/:id/edit', authorsController.edit)
+app.put('/authors/:id', authorsController.update)
+app.delete('/authors/:id', authorsController.delete)
+app.post('/authors/:id/reminders', authorsController.addReminder)
+app.delete('/authors/:authorId/reminders/:id', authorsController.removeReminder)
